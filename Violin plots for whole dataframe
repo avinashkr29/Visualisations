@@ -1,0 +1,19 @@
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+
+fontsize = 10
+
+fig, axes = plt.subplots(figsize=(16,6))
+# plot violin. 'Scenario' is according to x axis, 
+# 'LMP' is y axis, data is your dataframe. ax - is axes instance
+sns.violinplot(y='SiteDescription',x='diff_in_open_due_date_imputed',data=df,palette="Set3")
+axes.set_title('Violin plot of due days')
+
+axes.yaxis.grid(True)
+axes.set_xlabel('Sites')
+axes.set_ylabel('Due Days')
+
+plt.show()
