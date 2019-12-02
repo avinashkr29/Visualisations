@@ -1,0 +1,7 @@
+#Data is of two columns, one columns has classes, and another one its values. The bar plot is for showing mode of each class.
+ax= df[['SiteDescription','diff_in_open_due_date']].groupby('SiteDescription', as_index=True)['diff_in_open_due_date'].agg(lambda x:x.value_counts().index[0]).plot(kind='barh',figsize=(16,6))
+for p in ax.patches:
+    #For verticle bar plots annotations
+    #ax.annotate(str(p.get_height()), (p.get_x() * 1.005, p.get_height() * 1.005))
+    #For horizontal bar plot annotations
+    ax.annotate(str(p.get_width()), (p.get_x() + p.get_width(), p.get_y()), xytext=(5, 0), textcoords='offset points')
