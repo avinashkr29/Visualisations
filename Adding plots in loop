@@ -1,0 +1,8 @@
+i=911
+fig = plt.figure()
+
+for compressor in compressors:
+    #plt.subplot(i)
+    df.pivot_table(index=df['Hour'],columns='Day',values=compressor,aggfunc='mean').plot(figsize=(15,4),title=compressor + ' Average Usage')
+    i=i+1
+    plt.show()
